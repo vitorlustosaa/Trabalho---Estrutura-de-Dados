@@ -1,10 +1,11 @@
-#include <stdio.h>
-#include <stdlib.h>
-#include "tribunal.h"
 
 // [OBSERVAÇÃO PARA O GRUPO]:
 // 1. MENU: (vitor) já estruturei o switch/case para chamar as funções obrigatórias
 // 2. ENTRADA: (vitor) usei 'gets' para capturar nomes de municípios com espaços (ex: MACAPA)
+
+#include <stdio.h>
+#include <stdlib.h>
+#include "tribunal.h"
 
 int main()
 {
