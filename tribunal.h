@@ -1,10 +1,12 @@
-#ifndef TRIBUNAL_H
-#define TRIBUNAL_H
+
 
 // [OBSERVAÇÃO PARA O GRUPO]:
 // 1. NÃO ALTERAR OS NOMES DOS CAMPOS NA STRUCT - Eles seguem a ordem exata do PDF
 // 2. TAD LISTA: O ponteiro 'proximo' já está criado; usem ele para a lista encadeada
 // 3. SEPARADOR: Lembrem-se que o arquivo CSV usa ponto e vírgula (;) como separador
+
+#ifndef TRIBUNAL_H
+#define TRIBUNAL_H
 
 typedef struct DadoTribunal
 {
