@@ -1,58 +1,38 @@
 
 
-// [OBSERVAÇÃO PARA O GRUPO]:
-// 1. NÃO ALTERAR OS NOMES DOS CAMPOS NA STRUCT - Eles seguem a ordem exata do PDF
-// 2. TAD LISTA: O ponteiro 'proximo' já está criado; usem ele para a lista encadeada
-// 3. SEPARADOR: Lembrem-se que o arquivo CSV usa ponto e vírgula (;) como separador
-
 #ifndef TRIBUNAL_H
 #define TRIBUNAL_H
 
-typedef struct DadoTribunal
-{
-    // Definição da estrutura com base nos 33 campos do PDF
-    char sigla_tribunal[10];
-    char procedimento[100];
-    char ramo_justica[50];
-    char sigla_grau[10];
-    char uf_oj[5];
-    char municipio_oj[100];
+typedef struct DadoTribunal {
+    char sigla_tribunal[20];
+    char procedimento[150];
+    char ramo_justica[100];
+    char sigla_grau[20];
+    char uf_oj[10];
+    char municipio_oj[150]; 
     int id_ultimo_oj;
-    char nome[200];
-    char mesano_cnm1[10];
-    char mesano_sent[10];
-
-    // Campos numéricos para cálculos das Metas (11 a 33)
+    char nome[250];
+    char mesano_cnm1[20];
+    char mesano_sent[20];
     int casos_novos_2026;
     int julgados_2026;
     int prim_sent2026;
     int suspensos_2026;
     int dessobrestados_2026;
-    float cumprimento_meta1;
-    int distm2_a;
-    int julgm2_a;
-    int suspm2_a;
-    float cumprimento_meta2a;
-    int distm2_ant;
-    int julgm2_ant;
-    int suspm2_ant;
-    int desom2_ant;
-    float cumprimento_meta2ant;
-    int distm4_a;
-    int julgm4_a;
-    int suspm4_a;
-    float cumprimento_meta4a;
-    int distm4_b;
-    int julgm4_b;
-    int suspm4_b;
-    float cumprimento_meta4b;
+    
+    // Campos das Metas (Iniciando em 0)
+    int distm2_a, julgm2_a, suspm2_a;
+    int distm2_ant, julgm2_ant, suspm2_ant, desom2_ant;
+    int distm4_a, julgm4_a, suspm4_a;
+    int distm4_b, julgm4_b, suspm4_b;
 
-    struct DadoTribunal *proximo; // Ponteiro para o próximo elemento da lista encadeada
+    struct DadoTribunal *proximo;
 } DadoTribunal;
 
-// Protótipos das funções obrigatórias
-void concatenarArquivos();                                         // Item 1
-void gerarResumoPorTribunal(DadoTribunal *lista);                  // Item 2
-void buscarPorMunicipio(DadoTribunal *lista, char *nomeMunicipio); // Item 3
+void concatenarArquivos();
+void carregarDados(DadoTribunal **lista);
+void gerarResumoPorTribunal(DadoTribunal *lista);
+void buscarPorMunicipio(DadoTribunal *lista, char *nomeMunicipio);
+void inserir(DadoTribunal **l, DadoTribunal r);
 
 #endif
